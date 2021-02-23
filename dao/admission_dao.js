@@ -1,46 +1,30 @@
 "use strict";
 const AthenaExpress = require("athena-express");
 const aws = require("aws-sdk");
-const awsCredentials = {
-    region: "us-east-1",
-    accessKeyId: "AKIAISB3QBCR7RIK3GTA",
-    secretAccessKey: "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"
-};
-aws.config.update(awsCredentials);
+const config = require("../config/config");
 
-const athenaExpressConfig = {
-    aws,
-    s3: "s3://elasticbeanstalk-us-east-1-515342084668/",
-    getStats: true
-};
-const athenaExpress = new AthenaExpress(athenaExpressConfig);
-//const sqls = require("./sql/admission_sql");
 /* show the total number of admission table*/
-async function showCount() {
+const athenaExpress = config.athenaExpress();
+exports.count = async function() {
     let myQuery = {
-        sql:"SELECT count(*) From admissions",
-        db:"mimiciii"
+        sql:"SELECT count(*) FROM admissions",
+        db:process.env.athena_db
     };
     try {
+        console.log("enter",new Date().toLocaleTimeString());
+        console.time("count");
         let results = await athenaExpress.query(myQuery);
-        console.log("athena result:",results);
+        console.timeEnd("count");
+        return results;
     } catch (error) {
         console.log(error);
     }
-}
-module.exports = showCount();
+};
 
-// (async () => {
-//     let myQuery = {
-//         sql:"",
-//         db:""
-//     };
-//     try {
-//         let results = await athenaExpress.query(myQuery);
-//         console.log(results);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// })();
+exports.dummy = async function() {
+    console.log("222");
+    return 1;
+};
+
 
 

@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 /* GET admission table data */
 router.get('/ad',function(req,res,next) {
   var data = require("../dao/admission_dao");
-  console.log(data);
+  console.log("count:",data.count());
+  console.log("dummy",data.dummy());
 
 });
 
