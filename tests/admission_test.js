@@ -7,5 +7,11 @@ describe('admission table',function() {
             console.log("count test result is:",results.Items[0]._col0);
         });
     });
+    describe('religion',function() {
+       it('religion result should be', async function() {
+            const results = await admission.time_death();
+            console.log("religion test result is:",results);
+       });
+    });
 
 });
