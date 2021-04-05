@@ -7,6 +7,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+app.set('view engine','ejs');
+app.set('views',__dirname + '/views');
 
 app.use(logger('dev'));
 app.use(express.json());

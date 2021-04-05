@@ -14,8 +14,11 @@ require('log4js').getLogger('solr-node').level = 'DEBUG';
 exports.basic_search_result = async function(keyword) {
     var strQuery = client.query().q({text:'*'+keyword+'*'}).addParams({
         wt:'json',
-        indent:true
-    });
+        indent:true,
+    })
+        .start(0)
+        .rows(10000);
+        // .hlQuery("hl.fl=text&hl=on&hl.simple.pre=<highlight>&hl.simple.post=</highlight>");
     try {
         const result = await client.search(strQuery);
         console.log("searching...");

@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>NOTESEVENT</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#disease">DISEASE</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab"  href="#chemical">CHEMICAL</a>
+        </li>
+    </ul>
+</div>
+
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane in active" id="disease">
+        <img src = "/images/socialwork_disease.png" class="rounded float-left"/>
+    </div>
+    <div class="tab-pane fade" id="chemical">
+        <img src = "/images/socialwork_chemical.png" class="rounded float-left"/>
+    </div>
+</div>
+
+<form class="form-inline" action="/search" method="get">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
+           id="keyword" name="keyword">
+    <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="search!"/>
+</form>
+
+
+</body>
+<link href='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.css' rel="stylesheet">
+<script src='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.js'></script>
+<script>
+    //Medical conditions
+    new Def.Autocompleter.Search('keyword', 'https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?' +
+        'sf=primary_name,icd10cm_codes,term_icd9_code,synonyms' +
+        '&df=primary_name,icd10cm_codes,term_icd9_code,synonyms', {
+        tableFormat: true,
+        valueCols: [0],
+        colHeaders: ['primary_name','icd10cm_codes','term_icd9_code','synonyms']
+    });
+</script>
+</html>

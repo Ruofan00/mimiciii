@@ -12,13 +12,18 @@ router.get('/ad',function(req,res,next) {
   console.log("dummy",data.dummy());
 
 });
-
+/* Search page */
 router.get('/search',async function(req,res,next){
   const keyword = req.query.keyword;
   var solr = require("../solr/search");
   var result = await solr.basic_search_result(keyword);
-  res.json(result);
-  console.log("result: ",result);
+  //res.json(result);
+  res.render("search",{
+    data:result,
+    num: result.response.numFound,
+    title:keyword,
+  });
+  console.log(result.response.numFound)
 });
 
 module.exports = router;
