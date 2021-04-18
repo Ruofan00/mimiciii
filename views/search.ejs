@@ -6,17 +6,29 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </head>
-    <h2>Search word: "<%= title %>"</h2>
-    <h2>number found: <%= num %></h2>
+<!--    <h2>Search word: "<%= title %>"</h2>-->
+<!--    <h2>Synonyms: "<%= synonyms['syn'] %>"</h2>-->
+<!--    <h2>Related ICD-9 Codes: "<%= icd9_code %>"</h2>-->
+<!--    <h2>Related ICD-10 Codes and Names: "<%= icd10_code %>"</h2>-->
     <body>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Searching result:</h5>
+            <p class="card-text">Search number of <%= title %>: <strong><%= num %></strong></p>
+            <p class="card-text">Search word: <strong><%= title %></strong></p>
+            <p class="card-text">Search number of synonyms: <strong><%= synonyms['syn_num'] %></strong></p>
+            <p class="card-text">Synonyms: <strong><%= synonyms['syn'] %></strong></p>
+        </div>
+    </div>
+
     <div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#keyword"><%= title%></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab"  href="#icd9">ICD-9</a>
-            </li>
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" data-toggle="tab"  href="#icd9">ICD-9</a>-->
+<!--            </li>-->
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#synonyms">Synonyms</a>
             </li>
@@ -24,10 +36,10 @@
     </div>
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane in active" id="keyword">
-            <table class="table table-dark" id="my_table">
+            <table class="table table-dark" id="my_table1">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">subject_id</th>
                     <th scope="col">chartdate</th>
                     <th scope="col">charttime</th>
                     <th scope="col">storetime</th>
@@ -38,7 +50,7 @@
                 <tbody>
                 <% for(var i=0;i<data.response.docs.length;i++) {%>
                     <tr>
-                        <th scope="row"><%= i+1 %></th>
+                        <th scope="row"><%= data.response.docs[i].subject_id %></th>
                         <td> <%= data.response.docs[i].chartdate %></td>
                         <td> <%= data.response.docs[i].charttime %></td>
                         <td> <%= data.response.docs[i].storetime %></td>
@@ -51,11 +63,35 @@
                 </tbody>
             </table>
         </div>
-        <div class="tab-pane fade" id="icd9">
-            <p>EMPTY</p>
-        </div>
+
+
         <div class="tab-pane fade" id="synonyms">
-            <p>EMPTY</p>
+            <table class="table table-dark" id="my_table3">
+                <thead>
+                <tr>
+                    <th scope="col">subject_id</th>
+                    <th scope="col">chartdate</th>
+                    <th scope="col">charttime</th>
+                    <th scope="col">storetime</th>
+                    <th scope="col">description</th>
+                    <th scope="col">text</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for(var i=0;i<synonyms['syn_result'].length;i++) {%>
+                    <tr>
+                        <th scope="row"><%= synonyms['syn_result'][i].subject_id %></th>
+                        <td> <%= synonyms['syn_result'][i].chartdate %></td>
+                        <td> <%= synonyms['syn_result'][i].charttime %></td>
+                        <td> <%= synonyms['syn_result'][i].storetime %></td>
+                        <td> <%= synonyms['syn_result'][i].description %></td>
+                        <td id=<%= i%>><span style="white-space: pre-line">
+                        <%= synonyms['syn_result'][i].text %>
+                    </span></td>
+                    </tr>
+                <%}%>
+                </tbody>
+            </table>
         </div>
     </div>
 

@@ -13,5 +13,11 @@ describe('admission table',function() {
             console.log("religion test result is:",results);
        });
     });
+    this.timeout(10000);
+    describe('search',function() {
+        it('icd9',async function() {
+            const results = await admission.icd9_results("headache");
+        });
+    });
 
 });

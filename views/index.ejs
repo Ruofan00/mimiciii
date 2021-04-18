@@ -2,51 +2,290 @@
 
 <head>
     <title>NOTESEVENT</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+
 </head>
 <body>
 
 <div>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#disease">DISEASE</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab"  href="#chemical">CHEMICAL</a>
-        </li>
-    </ul>
+    <div class="wrapper">
+
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>MIMIC-III NOTEEVENTS</h3>
+            </div>
+
+            <ul class="list-unstyled components ">
+                <p>Category</p>
+                <li>
+                    <a href="#section-nursing/other">Nursing/other</a>
+                </li>
+                <li>
+                    <a href="#">Radiology</a>
+                </li>
+                <li>
+                    <a href="#section-nursing">Nursing</a>
+                </li>
+                <li>
+                    <a href="#">ECG</a>
+                </li>
+                <li>
+                    <a href="#">Physician</a>
+                </li>
+                <li>
+                    <a href="#">Discharge summary</a>
+                </li>
+                <li>
+                    <a href="#">Echo</a>
+                </li>
+                <li>
+                    <a href="#">Respiratory</a>
+                </li>
+                <li>
+                    <a href="#">Nutrition</a>
+                </li>
+                <li>
+                    <a href="#">General</a>
+                </li>
+                <li>
+                    <a href="#">Rehab Services</a>
+                </li>
+                <li>
+                    <a href="#">Social Work</a>
+                </li>
+                <li>
+                    <a href="#">Case Management</a>
+                </li>
+                <li>
+                    <a href="#">Pharmacy</a>
+                </li>
+                <li>
+                    <a href="#">Consult</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="section-nursing/other" class="tab-content"></div>
+        <div id="section-nursing" class="tab-content">nursing</div>
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+<!--                    <select onchange="change()">-->
+<!--                        <option selected>search options</option>>-->
+<!--                        <option value="syn">synonyms</option>-->
+<!--                        <option value="icd9">icd9</option>-->
+<!--                        <option value="icd10">icd10</option>-->
+<!--                    </select>-->
+
+                    <form class="form-inline" action="/search" method="get">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
+                               id="keyword" name="keyword">
+                        <input type="submit" class="btn btn-outline-success my-2 my-sm-0"
+                               value="search!" id="button" disabled="true"/>
+                    </form>
+                </div>
+            </nav>
+
+            <div class="container" id="picture">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#disease">DISEASE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab"  href="#chemical">CHEMICAL</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane in active" id="disease">
+                    <div id="d_chart" style="width:880px; height: 600px"></div>
+                </div>
+                <div class="tab-pane in active" id="chemical">
+                    <div id="c_chart" style="width:880px; height: 600px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<div id="myTabContent" class="tab-content">
-    <div class="tab-pane in active" id="disease">
-        <img src = "/images/socialwork_disease.png" class="rounded float-left"/>
-    </div>
-    <div class="tab-pane fade" id="chemical">
-        <img src = "/images/socialwork_chemical.png" class="rounded float-left"/>
-    </div>
-</div>
+<!--<select onchange="change()">-->
+<!--    <option selected>search options</option>>-->
+<!--    <option value="syn">synonyms</option>-->
+<!--    <option value="icd9">icd9</option>-->
+<!--    <option value="icd10">icd10</option>-->
+<!--</select>-->
 
-<form class="form-inline" action="/search" method="get">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
-           id="keyword" name="keyword">
-    <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="search!"/>
-</form>
+<!--<form class="form-inline" action="/search" method="get">-->
+<!--    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"-->
+<!--           id="keyword" name="keyword">-->
+<!--    <input type="submit" class="btn btn-outline-success my-2 my-sm-0"-->
+<!--           value="search!" id="button" disabled="true"/>-->
+<!--</form>-->
 
 
 </body>
 <link href='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.css' rel="stylesheet">
 <script src='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script>
-    //Medical conditions
-    new Def.Autocompleter.Search('keyword', 'https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?' +
-        'sf=primary_name,icd10cm_codes,term_icd9_code,synonyms' +
-        '&df=primary_name,icd10cm_codes,term_icd9_code,synonyms', {
-        tableFormat: true,
-        valueCols: [0],
-        colHeaders: ['primary_name','icd10cm_codes','term_icd9_code','synonyms']
+
+    $(document).ready(function () {
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+
     });
+
+    //Medical conditions
+    // function change() {
+    //     var flag = $('select option:selected').val();
+    //     console.log(flag);
+    //     if(flag==='syn') {
+    //         document.getElementById("button").disabled = false;
+            new Def.Autocompleter.Search('keyword', 'https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?' +
+                'sf=primary_name,icd10cm_codes,term_icd9_code,synonyms' +
+                '&df=primary_name,icd10cm_codes,term_icd9_code,synonyms', {
+                tableFormat: true,
+                valueCols: [0],
+                colHeaders: ['primary_name','icd10cm_codes','term_icd9_code','synonyms']
+            });
+    //     } else if(flag==='icd9') {
+    //         document.getElementById("button").disabled = false;
+    //         new Def.Autocompleter.Search('keyword', 'https://clinicaltables.nlm.nih.gov/api/icd9cm_dx/v3/search', {
+    //             tableFormat: true,
+    //             valueCols: [0],
+    //             colHeaders: ['icd9_ode','name']
+    //         });
+    //     } else if(flag==='icd10') {
+    //         document.getElementById("button").disabled = false;
+    //         new Def.Autocompleter.Search('keyword', 'https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name', {
+    //             tableFormat: true,
+    //             valueCols: [0],
+    //             colHeaders: ['icd10_ode', 'name']
+    //         });
+    //     } else {
+    //         document.getElementById("button").disabled = true;
+    //     }
+    // }
+
+    Plotly.d3.csv("https://raw.githubusercontent.com/Ruofan00/csv/master/result_sc_d.csv",
+        function(data){
+        console.log(data);
+        var x = [],y=[],term=[]
+            for(let i=0;i<data.length;i++) {
+                let row = data[i];
+                x.push(row['x']);
+                y.push(row['y']);
+                term.push(row['term']);
+            }
+            console.log(term);
+            var dis_term = {
+                x: x,
+                y: y,
+                mode: 'markers+text',
+                type: 'scatter',
+                name: 'Team A',
+                text: term,
+                textposition: 'top center',
+                textfont: {
+                    family:  'Raleway, sans-serif'
+                },
+                marker: { size: 12 }
+            };
+            console.log("1")
+            var d = [dis_term];
+
+            var layout = {
+                xaxis: {
+                    autorange: true,
+                    range: [ -20, 20 ]
+                },
+                yaxis: {
+                    autorange: true,
+                    range: [-20, 20]
+                },
+                legend: {
+                    y: 0.5,
+                    yref: 'paper',
+                    font: {
+                        family: 'Arial, sans-serif',
+                        size: 20,
+                        color: 'grey',
+                    }
+                },
+                title:'Disease terms for Social Work'
+            };
+
+            Plotly.newPlot('d_chart', d, layout);
+    } );
+
+    Plotly.d3.csv("https://raw.githubusercontent.com/Ruofan00/csv/master/result_sc_c.csv",
+        function(data){
+            console.log(data);
+            var x = [],y=[],term=[]
+            for(let i=0;i<data.length;i++) {
+                let row = data[i];
+                x.push(row['x']);
+                y.push(row['y']);
+                term.push(row['term']);
+            }
+            console.log(term);
+            var dis_term = {
+                x: x,
+                y: y,
+                mode: 'markers+text',
+                type: 'scatter',
+                name: 'Team A',
+                text: term,
+                textposition: 'top center',
+                textfont: {
+                    family:  'Raleway, sans-serif'
+                },
+                marker: { size: 12 }
+            };
+            console.log("1")
+            var d = [dis_term];
+
+            var layout = {
+                xaxis: {
+                    autorange: true,
+                    range: [ -20, 20 ]
+                },
+                yaxis: {
+                    autorange: true,
+                    range: [-20, 20]
+                },
+                legend: {
+                    y: 0.5,
+                    yref: 'paper',
+                    font: {
+                        family: 'Arial, sans-serif',
+                        size: 20,
+                        color: 'grey',
+                    }
+                },
+                title:'Chemical terms for Social Work'
+            };
+
+            Plotly.newPlot('c_chart', d, layout);
+        } );
+
+
+
+
 </script>
 </html>
