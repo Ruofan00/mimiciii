@@ -29,9 +29,9 @@
 <!--            <li class="nav-item">-->
 <!--                <a class="nav-link" data-toggle="tab"  href="#icd9">ICD-9</a>-->
 <!--            </li>-->
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#synonyms">Synonyms</a>
-            </li>
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" data-toggle="tab" href="#synonyms">Synonyms</a>-->
+<!--            </li>-->
         </ul>
     </div>
     <div id="myTabContent" class="tab-content">
@@ -48,7 +48,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% for(var i=0;i<data.response.docs.length;i++) {%>
+                <% for(let i=0;i<data.response.docs.length;i++) {%>
                     <tr>
                         <th scope="row"><%= data.response.docs[i].subject_id %></th>
                         <td> <%= data.response.docs[i].chartdate %></td>
@@ -65,34 +65,34 @@
         </div>
 
 
-        <div class="tab-pane fade" id="synonyms">
-            <table class="table table-dark" id="my_table3">
-                <thead>
-                <tr>
-                    <th scope="col">subject_id</th>
-                    <th scope="col">chartdate</th>
-                    <th scope="col">charttime</th>
-                    <th scope="col">storetime</th>
-                    <th scope="col">description</th>
-                    <th scope="col">text</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% for(var i=0;i<synonyms['syn_result'].length;i++) {%>
-                    <tr>
-                        <th scope="row"><%= synonyms['syn_result'][i].subject_id %></th>
-                        <td> <%= synonyms['syn_result'][i].chartdate %></td>
-                        <td> <%= synonyms['syn_result'][i].charttime %></td>
-                        <td> <%= synonyms['syn_result'][i].storetime %></td>
-                        <td> <%= synonyms['syn_result'][i].description %></td>
-                        <td id=<%= i%>><span style="white-space: pre-line">
-                        <%= synonyms['syn_result'][i].text %>
-                    </span></td>
-                    </tr>
-                <%}%>
-                </tbody>
-            </table>
-        </div>
+<!--        <div class="tab-pane fade" id="synonyms">-->
+<!--            <table class="table table-dark" id="my_table3">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th scope="col">subject_id</th>-->
+<!--                    <th scope="col">chartdate</th>-->
+<!--                    <th scope="col">charttime</th>-->
+<!--                    <th scope="col">storetime</th>-->
+<!--                    <th scope="col">description</th>-->
+<!--                    <th scope="col">text</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <% for(var i=0;i<synonyms['syn_result'].length;i++) {%>-->
+<!--                    <tr>-->
+<!--                        <th scope="row"><%= synonyms['syn_result'][i].subject_id %></th>-->
+<!--                        <td> <%= synonyms['syn_result'][i].chartdate %></td>-->
+<!--                        <td> <%= synonyms['syn_result'][i].charttime %></td>-->
+<!--                        <td> <%= synonyms['syn_result'][i].storetime %></td>-->
+<!--                        <td> <%= synonyms['syn_result'][i].description %></td>-->
+<!--                        <td id=<%= i%>><span style="white-space: pre-line">-->
+<!--                        <%= synonyms['syn_result'][i].text %>-->
+<!--                    </span></td>-->
+<!--                    </tr>-->
+<!--                <%}%>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
     </div>
 
     </body>

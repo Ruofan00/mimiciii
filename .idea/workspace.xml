@@ -2,66 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9892a7ed-8d88-4e4f-b2cc-0242214ea767" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/d3/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/d3/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/plotly.js/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/plotly.js/lib/core.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/plotly.js/lib/traces/box.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/plotly.js/lib/traces/candlestick.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/plotly.js/lib/traces/ohcl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/plotly.js/lib/traces/pie.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/plotly.js/lib/traces/scatter.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/plotly.js/lib/traces/violin.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/@types/plotly.js/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/axios/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/axios/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/nodeplotlib/dist/lib/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/nodeplotlib/dist/lib/models/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/nodeplotlib/dist/lib/models/plot.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/nodeplotlib/dist/lib/models/plots-container.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/nodeplotlib/dist/lib/plot.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/nodeplotlib/dist/lib/server.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/nodeplotlib/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/cookies.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/getProxyFromURI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/har.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/hawk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/helpers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/multipart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/oauth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/querystring.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/redirect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/lib/tunnel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/request/request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/lib/client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/lib/collection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/lib/error/solr-error.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/lib/query.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/lib/solr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/lib/utils/array.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/lib/utils/format.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/lib/utils/type.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/lib/utils/version.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/solr-client/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/chemical.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/disease.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solr/tsne.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/nav_sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/admission_dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/dao/admission_dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/icdmedical.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/icdmedical.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solr/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/solr/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/admission_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/admission_test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/search_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search_test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/search.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/search.ejs" afterDir="false" />
     </list>
@@ -253,7 +196,10 @@
       <workItem from="1616522034526" duration="16227000" />
       <workItem from="1617216536072" duration="233000" />
       <workItem from="1617636407567" duration="40887000" />
-      <workItem from="1618330106838" duration="34395000" />
+      <workItem from="1618330106838" duration="46911000" />
+      <workItem from="1618876259337" duration="5573000" />
+      <workItem from="1618981258105" duration="1087000" />
+      <workItem from="1619016809856" duration="1964000" />
     </task>
     <servers />
   </component>
